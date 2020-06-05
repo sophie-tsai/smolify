@@ -1,0 +1,19 @@
+/* TYPOGRAPHY */
+
+.signature {
+  text-align: center;
+  margin: 0.5em;
+  font-size: 0.75rem;
+  text-decoration: none;
+  color: var(--black);
+}
+
+.signature:hover {
+  text-decoration: underline;
+}
+
+/* BUTTONS */
+
+/* LAYOUT */
+
+/* MEDIA QUERIES */
