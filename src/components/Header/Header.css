@@ -1,6 +1,6 @@
 /* TYPOGRAPHY */
 .title {
-  font-family: "Abril Fatface", cursive;
+  font-family: "Londrina Solid", cursive;
   font-size: 2.5rem;
   letter-spacing: 0.04em;
   color: var(--purple);
@@ -10,11 +10,9 @@
 .header-item {
   font-size: 1.3rem;
   margin-left: 1em;
-
   flex: 0;
-
-  letter-spacing: 0.04em;
-  font-family: "Roboto", sans-serif;
+  font-family: "Open Sans", sans-serif;
+  color: var(--black);
 }
 
 /* BUTTONS */
@@ -25,7 +23,7 @@
 
 .header-container {
   margin: 0;
-  padding: 1em;
+  padding: 1em 3em;
   /* background-color: var(--white); */
   display: flex;
   align-items: center;

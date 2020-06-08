@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Account from "../Account/Account";
 import "./Header.css";
 
 function Header() {
@@ -10,11 +11,11 @@ function Header() {
       </h2>
 
       <p className="header-item">
-        <Link to="/stats">stats </Link>
+        <Link to="/links">links </Link>
       </p>
 
       <p className="header-item">
-        <Link to="/links">manage</Link>
+        <Link to="/account">account</Link>
       </p>
     </div>
   );

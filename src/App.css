@@ -3,7 +3,7 @@
 }
 
 :root {
-  --black: #0a0908;
+  --black: #171412;
   --purple: #542344;
   --gray: #6d6466;
   --light-gray: #f3f3f3;
@@ -15,9 +15,9 @@ body {
   padding: 0;
   background-image: url(./assets/memphis-mini.png);
   background-repeat: repeat;
-  background-size: 200px;
+  background-size: 300px;
   /* Background pattern from Toptal Subtle Patterns */
-  font-family: "Roboto", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 /* TYPOGRAPHY */
@@ -31,31 +31,63 @@ p {
 a {
   text-decoration: none;
   cursor: pointer;
+  color: inherit;
 }
 
 a:visited {
   color: inherit;
 }
 
+/* FORMS */
+
+.input {
+  padding: 0.8em 1.2em;
+  font-size: 1.2rem;
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  outline: none;
+}
+
 /* BUTTONS */
 
 .button {
-  padding: 1em 1.25em;
+  padding: 0.8em 1.2em;
   border-radius: 5px;
   border: 0em;
   font-size: 1.2rem;
   outline: none;
   cursor: pointer;
-  font-family: "Roboto", sans-serif;
+  font-family: "Open Sans", sans-serif;
+}
+
+.button-primary {
+  background: var(--purple);
+  color: var(--white);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin: 0;
 }
 
 /* LAYOUT */
+
+.page-container {
+  margin: 0;
+  height: 100%;
+}
 
 .app-container {
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: stretch;
+}
+
+.page-title {
+  text-align: center;
+  margin: 1em;
+  font-size: 2em;
+  /* font-style: italic; */
+  color: var(--black);
 }
 
 /* MEDIA QUERIES */

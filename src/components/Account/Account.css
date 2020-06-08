@@ -1,0 +1,34 @@
+/* TYPOGRAPHY */
+
+/* BUTTONS */
+
+/* LAYOUT */
+
+.account-subcomponent {
+  background: var(--white);
+  width: 500px;
+  margin: 1em auto;
+  display: flex;
+  padding: 0.8em 1.2em;
+  font-size: 1.2rem;
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  outline: none;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.account-subcomponent-icon {
+  margin-right: 0.75em;
+}
+
+.account-subcomponent-child-end {
+  flex-grow: 1;
+  text-align: end;
+}
+
+.account-details {
+  margin: 2em;
+}
+
+/* MEDIA QUERIES */

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./LandingPage.css";
 
 function LandingPage() {
@@ -7,7 +8,9 @@ function LandingPage() {
       <h1 className="landing-tagline">
         shorten, manage, and track your links!
       </h1>
-      <button className="button button-primary">get started</button>
+      <button className="button button-primary">
+        <Link to="/signup">get started</Link>
+      </button>
     </div>
   );
 }
