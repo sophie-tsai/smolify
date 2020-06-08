@@ -1,5 +1,6 @@
 import React from "react";
 import "./Account.css";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt, faPlus } from "@fortawesome/free-solid-svg-icons";
 
@@ -8,10 +9,6 @@ function Account() {
     <div className="page-container">
       <h2 className="page-title">account details</h2>
 
-      {/* <div className="account-subcomponent">
-        <p className="account-subcomponent-child">member since</p>
-        <p className="account-subcomponent-child">june 2020</p>
-      </div> */}
       <div className="account-details">
         <div className="account-subcomponent">
           <FontAwesomeIcon
@@ -23,10 +20,12 @@ function Account() {
         </div>
 
         <div className="account-subcomponent">
-          <FontAwesomeIcon
-            icon={faPlus}
-            className="account-subcomponent-icon"
-          />
+          <Link to="/links">
+            <FontAwesomeIcon
+              icon={faPlus}
+              className="account-subcomponent-icon"
+            />
+          </Link>
           <p className="account-subcomponent-child">total links</p>
           <p className="account-subcomponent-child-end">4</p>
         </div>

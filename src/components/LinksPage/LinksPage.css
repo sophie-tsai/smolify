@@ -2,6 +2,46 @@
 
 /* BUTTONS */
 
+/* FORM */
+
+.links-page {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.shorten-link-form {
+  min-width: 400px;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 2em;
+  display: flex;
+}
+
+.shorten-link-input-div {
+  flex-grow: 1;
+  margin-right: 0.5em;
+  background: white;
+  display: flex;
+}
+
+.shorten-link-input {
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  flex-grow: 1;
+  padding: 0 0.5em;
+}
+
+.shorten-link-overlay {
+  position: absolute;
+}
+
+.shorten-link-button {
+  color: var(--white);
+  background: var(--purple);
+}
+
 /* LAYOUT */
 
 /* MEDIA QUERIES */

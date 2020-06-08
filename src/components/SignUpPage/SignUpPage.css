@@ -2,6 +2,9 @@
 
 .cta-link {
   text-align: center;
+  width: 120px;
+  margin: 0 auto;
+  cursor: pointer;
 }
 
 .cta-link:hover {
@@ -10,7 +13,7 @@
 
 /* BUTTONS */
 
-.button-signup {
+.button-auth {
   width: 100%;
   color: white;
   background-color: var(--purple);
@@ -18,19 +21,19 @@
 
 /* FORMS */
 
-.signup-form {
+.auth-form {
   width: 500px;
   margin: 2em auto;
 }
 
-.username-signup-input {
+.username-auth-input {
   width: 100%;
   margin-bottom: 1em;
 }
 
 /* LAYOUT */
 
-.sign-up-page {
+.auth-page {
   display: flex;
   flex-direction: column;
   text-align: center;

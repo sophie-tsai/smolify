@@ -1,0 +1,44 @@
+/* TYPOGRAPHY */
+
+/* BUTTONS */
+
+/* FORM */
+
+/* LAYOUT */
+
+.link-div {
+  background: var(--white);
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  outline: none;
+  display: flex;
+  width: 600px;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  padding: 1em;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.link-div:last-child {
+  margin-bottom: 0;
+}
+
+.links {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.short-link {
+  font-size: 2rem;
+}
+
+.link-info {
+  font-size: 0.75rem;
+  align-self: flex-end;
+}
+
+.delete-icon {
+  margin-right: 2rem;
+}
+/* MEDIA QUERIES */

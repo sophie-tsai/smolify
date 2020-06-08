@@ -1,11 +1,24 @@
 import React from "react";
-// import Header from "../Header/Header";
+import UserLinks from "../UserLinks/UserLinks";
 import "./LinksPage.css";
 
 function LinksPage() {
   return (
-    <div className="page-container">
+    <div className="page-container links-page">
       <h2 className="page-title">your links</h2>
+      <form className="shorten-link-form">
+        <div className="input shorten-link-input-div">
+          <span>https://</span>
+          <input
+            type="text"
+            className="shorten-link-input"
+            placeholder="www..."
+          ></input>
+        </div>
+        <button className="button shorten-link-button">shorten</button>
+      </form>
+      <strong>sort by</strong>
+      <UserLinks />
     </div>
   );
 }

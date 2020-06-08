@@ -1,11 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "./SignUpPage.css";
 
-function SignUpPage() {
+import "./LogIn.css";
+
+function LogIn() {
   return (
     <div className="page-container auth-page">
-      <h2 className="page-title">create an account</h2>
+      <h2 className="page-title">log in</h2>
       <form className="auth-form">
         <input
           type="text"
@@ -15,13 +15,8 @@ function SignUpPage() {
         <br />
         <button className="button button-auth">submit</button>
       </form>
-      <span>
-        <Link to="/login" className="cta-link">
-          already have an account?
-        </Link>
-      </span>
     </div>
   );
 }
 
-export default SignUpPage;
+export default LogIn;

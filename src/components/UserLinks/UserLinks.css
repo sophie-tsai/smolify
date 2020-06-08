@@ -1,0 +1,39 @@
+/* TYPOGRAPHY */
+
+/* BUTTONS */
+
+/* FORM */
+
+/* LAYOUT */
+
+.all-links {
+  height: 55%;
+  overflow: auto;
+  width: 45%;
+  padding: 0;
+  margin: 0.5em auto;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--white);
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--purple);
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}
+/* MEDIA QUERIES */
