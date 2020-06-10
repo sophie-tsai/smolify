@@ -1,38 +1,81 @@
-import axios from "axios";
+import {
+  getUserInfo,
+  createUserDoc,
+  updateUsernameByID,
+  deleteUserByID,
+} from "../api";
 
 const userState = {
   username: "",
   userId: "",
 };
 
-export function setUsername(username) {
+//sign in user
+export function signInUser(username) {
   return async (dispatch) => {
-    const BASE_URL = "http://localhost:5000";
-    try {
-      const res = await axios.get(`${BASE_URL}/users/${username}`);
-      const usernameInfo = res.data;
-      console.log(usernameInfo[0]);
+    const usernameInfo = await getUserInfo(username);
+    dispatch({
+      type: "SIGN_IN_USER",
+      payload: {
+        username: usernameInfo.user,
+        userId: usernameInfo._id,
+      },
+    });
+  };
+}
 
-      dispatch({
-        type: "SET_USERNAME",
-        payload: {
-          username: usernameInfo[0].user,
-          userId: usernameInfo[0]._id,
-        },
-      });
-    } catch (error) {
-      console.error(error);
-    }
+// create user account
+export function createUserAccount(username) {
+  return async (dispatch) => {
+    const newUser = await createUserDoc(username);
+    console.log(newUser);
+    dispatch({
+      type: "CREATE_USER_ACCOUNT",
+      payload: {
+        username: newUser.user,
+        userId: newUser._id,
+      },
+    });
+  };
+}
+
+// update username
+export function updateUsername(userID, newUsername) {
+  return async (dispatch) => {
+    await updateUsernameByID(userID, newUsername);
+    console.log("updated");
+    dispatch({
+      type: "UPDATE_USERNAME",
+      payload: {
+        username: newUsername,
+        userId: userID,
+      },
+    });
+  };
+}
+
+// delete account
+export function deleteUserAccount(userID) {
+  return async (dispatch) => {
+    await deleteUserByID(userID);
+    console.log("deleted user", userID);
+    dispatch({
+      type: "DELETE_USER",
+    });
   };
 }
 
 export default function userReducer(user = userState, action) {
   switch (action.type) {
-    case "SET_USERNAME":
+    case "SIGN_IN_USER":
+    case "CREATE_USER_ACCOUNT":
+    case "UPDATE_USERNAME":
       return {
-        ...userState,
+        ...user,
         ...action.payload,
       };
+    case "DELETE_USER":
+      return userState;
     default:
       return user;
   }

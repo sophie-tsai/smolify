@@ -6,6 +6,7 @@ function SignUpPage() {
   return (
     <div className="page-container auth-page">
       <h2 className="page-title">create an account</h2>
+      <p className="error-message"></p>
       <form className="auth-form">
         <input
           type="text"
