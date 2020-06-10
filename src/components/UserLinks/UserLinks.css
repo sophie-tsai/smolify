@@ -7,16 +7,16 @@
 /* LAYOUT */
 
 .all-links {
-  height: 55%;
+  height: 23rem;
   overflow: auto;
-  width: 45%;
+  width: 38rem;
   padding: 0;
   margin: 0.5em auto;
 }
 
 /* width */
 ::-webkit-scrollbar {
-  width: 20px;
+  width: 15px;
 }
 
 /* Track */
@@ -32,8 +32,4 @@
   border-radius: 5px;
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #b30000;
-}
 /* MEDIA QUERIES */

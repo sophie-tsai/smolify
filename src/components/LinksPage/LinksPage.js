@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import UserLinks from "../UserLinks/UserLinks";
 import "./LinksPage.css";
+import { getAllUrls } from "../../utils/api";
 
 function LinksPage() {
+  useEffect(() => {
+    getAllUrls();
+  }, []);
+
   return (
     <div className="page-container links-page">
       <h2 className="page-title">your links</h2>

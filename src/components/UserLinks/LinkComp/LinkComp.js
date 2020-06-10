@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./LinkComp.css";
 
-function LinkComp(props) {
+function LinkComp() {
   return (
     <div className="link-div">
       <FontAwesomeIcon icon={faTimes} className="delete-icon" />
