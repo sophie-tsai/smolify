@@ -30,6 +30,7 @@ function Account() {
           <p className="account-subcomponent-child-end">4</p>
         </div>
       </div>
+      <p className="cta-link">sign out</p>
       <p className="cta-link">delete account</p>
     </div>
   );
