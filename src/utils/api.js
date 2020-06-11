@@ -1,4 +1,6 @@
 import axios from "axios";
+import { setSignInCode } from "./redux/statusCodes";
+import store from "./redux";
 const BASE_URL = "http://localhost:5000";
 
 // get all urls in database
@@ -33,20 +35,18 @@ const getUserInfo = async (username) => {
 // create user document
 const createUserDoc = async (username) => {
   try {
-    const doesUserExist = await getUserInfo(username);
-    if (doesUserExist) {
-      console.log("username taken", username);
-      return;
-    }
     const res = await axios.post(`${BASE_URL}/users`, {
       user: {
         user: username,
       },
     });
     const newUser = res.data;
+    store.dispatch(setSignInCode(200));
     return newUser;
   } catch (error) {
-    console.error(error);
+    store.dispatch(setSignInCode(error.response.status));
+
+    return error.response.status;
   }
 };
 

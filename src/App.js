@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import LandingPage from "./components/LandingPage/LandingPage";
 import Header from "./components/Header/Header";
 import SignUpPage from "./components/SignUpPage/SignUpPage";
@@ -7,9 +7,19 @@ import Account from "./components/Account/Account";
 import LogIn from "./components/LogIn/LogIn";
 import Signature from "./components/Signature/Signature";
 import { Switch, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logInUser } from "./utils/redux/user";
+import Cookies from "js-cookie";
 import "./App.css";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (Cookies.get("currentUser")) {
+      dispatch(logInUser(Cookies.get("currentUser")));
+    }
+  }, []);
+
   return (
     <div className="app-container">
       <Header style={{ flexGrow: 0 }} />

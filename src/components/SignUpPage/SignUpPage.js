@@ -1,30 +1,57 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createUserAccount } from "../../utils/redux/user";
 import { Link } from "react-router-dom";
 import "./SignUpPage.css";
+import { setSignInCode } from "../../utils/redux/statusCodes";
 
 function SignUpPage() {
   const dispatch = useDispatch();
+  const statusCode = useSelector((state) => state.statusCodes.signIn);
+  // const isSuccessful = useSelector((state) => state.user.status);
   const history = useHistory();
   const [usernameInput, setUsernameInput] = useState("");
   const [statusMessage, setStatusMessage] = useState("");
-  const invalidLength = "username must be over 1 character long";
 
-  const handleSignUp = (event) => {
-    event.preventDefault();
-    if (!usernameInput) {
-      setStatusMessage(invalidLength);
-      return;
-    }
-    setUsernameInput("");
-    dispatch(createUserAccount(usernameInput));
+  const invalidLength = "please enter username";
+  const duplicateUser = "username already taken";
+
+  useEffect(() => {
+    if (statusCode === 403) setStatusMessage(duplicateUser);
+    if (statusCode === 200) redirectToLinks();
+  }, [statusCode]);
+
+  const redirectToLinks = () => {
     history.push("/links");
+    setUsernameInput("");
+    console.log("successful");
+    setStatusMessage("");
+    dispatch(setSignInCode(0));
+  };
+
+  const handleSignUp = async (event) => {
+    event.preventDefault();
+    try {
+      //check if username was entered
+      if (!usernameInput) {
+        setStatusMessage(invalidLength);
+        return;
+      }
+
+      //attempt to create a user account
+      dispatch(createUserAccount(usernameInput));
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleChange = (event) => {
-    setStatusMessage("");
+    if (event.keyCode === 13) handleSignUp();
+    if (statusMessage) setStatusMessage("");
+    if (statusCode !== 0) {
+      dispatch(setSignInCode(0));
+    }
     const { value } = event.target;
     setUsernameInput(value);
   };

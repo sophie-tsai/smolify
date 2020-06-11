@@ -1,26 +1,25 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { signInUser } from "../../utils/redux/user";
-import Cookies from "js-cookie";
+import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./LandingPage.css";
 
 function LandingPage() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    if (Cookies.get("currentUser")) {
-      dispatch(signInUser(Cookies.get("currentUser")));
-    }
-  }, []);
+  const isSignedIn = useSelector((state) => state.user.username);
 
   return (
     <div className="page-container landing-page">
       <h1 className="landing-tagline">
         shorten, manage, and track your links!
       </h1>
-      <button className="button button-primary">
-        <Link to="/signup">get started</Link>
-      </button>
+      {isSignedIn ? (
+        <button className="button button-primary">
+          <Link to="/links">manage links</Link>
+        </button>
+      ) : (
+        <button className="button button-primary">
+          <Link to="/signup">get started</Link>
+        </button>
+      )}
     </div>
   );
 }

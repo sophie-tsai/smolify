@@ -1,4 +1,6 @@
 import Cookies from "js-cookie";
+import { setSignInCode } from "./statusCodes";
+import store from "../redux";
 
 import {
   getUserInfo,
@@ -12,14 +14,13 @@ const userState = {
   userId: "",
 };
 
-//sign in user
-export function signInUser(username) {
+//log in user
+export function logInUser(username) {
   return async (dispatch) => {
     const usernameInfo = await getUserInfo(username);
-
     if (!usernameInfo) return;
     dispatch({
-      type: "SIGN_IN_USER",
+      type: "LOG_IN_USER",
       payload: {
         username: usernameInfo.user,
         userId: usernameInfo._id,
@@ -29,11 +30,15 @@ export function signInUser(username) {
   };
 }
 
-// create user account
+//create user account
 export function createUserAccount(username) {
   return async (dispatch) => {
     const newUser = await createUserDoc(username);
-    console.log(newUser);
+    if (newUser === 403) {
+      return;
+    }
+    console.log("newuser", newUser);
+
     dispatch({
       type: "CREATE_USER_ACCOUNT",
       payload: {
@@ -81,7 +86,7 @@ export function signOutUser() {
 
 export default function userReducer(user = userState, action) {
   switch (action.type) {
-    case "SIGN_IN_USER":
+    case "LOG_IN_USER":
     case "CREATE_USER_ACCOUNT":
     case "UPDATE_USERNAME":
       return {
@@ -91,6 +96,7 @@ export default function userReducer(user = userState, action) {
     case "DELETE_USER":
     case "SIGN_OUT_USER":
       return userState;
+
     default:
       return user;
   }

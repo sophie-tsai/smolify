@@ -1,18 +1,15 @@
 import { combineReducers, createStore, applyMiddleware } from "redux";
-import {
-  signInUser,
-  createUserAccount,
-  updateUsername,
-  deleteUserAccount,
-} from "./user";
+
 import thunk from "redux-thunk";
 import userReducer from "./user";
+import statusCodeReducer from "./statusCodes";
 
-const rootReducer = combineReducers({ user: userReducer });
+const rootReducer = combineReducers({
+  user: userReducer,
+  statusCodes: statusCodeReducer,
+});
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 store.subscribe(() => console.log("global state", store.getState()));
-
-// store.dispatch(signInUser("ryan"));
 
 export default store;
