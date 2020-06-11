@@ -1,15 +1,19 @@
 /* TYPOGRAPHY */
-.error-message {
-  color: var(--purple);
-}
 
 /* BUTTONS */
 
+.button-400 {
+  width: 400px;
+}
+
 /* LAYOUT */
+.account-page {
+  text-align: center;
+}
 
 .account-subcomponent {
   background: var(--white);
-  width: 500px;
+  width: 400px;
   margin: 1em auto;
   display: flex;
   padding: 1em 1.2em;
@@ -32,6 +36,10 @@
 
 .account-details {
   margin: 2em;
+}
+
+.account-body {
+  margin-bottom: 2em;
 }
 
 /* MEDIA QUERIES */

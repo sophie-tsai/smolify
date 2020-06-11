@@ -1,6 +1,6 @@
 import Cookies from "js-cookie";
-import { setSignInCode } from "./statusCodes";
-import store from "../redux";
+// import { setSignInCode } from "./statusCodes";
+// import store from "../redux";
 
 import {
   getUserInfo,
@@ -70,6 +70,7 @@ export function deleteUserAccount(userID) {
   return async (dispatch) => {
     await deleteUserByID(userID);
     console.log("deleted user", userID);
+    Cookies.remove("currentUser");
     dispatch({
       type: "DELETE_USER",
     });
@@ -77,10 +78,10 @@ export function deleteUserAccount(userID) {
 }
 
 //sign out user account
-export function signOutUser() {
-  Cookies.remove("user");
+export function logOutUser() {
+  Cookies.remove("currentUser");
   return {
-    type: "SIGN_OUT_USER",
+    type: "LOG_OUT_USER",
   };
 }
 
@@ -94,7 +95,7 @@ export default function userReducer(user = userState, action) {
         ...action.payload,
       };
     case "DELETE_USER":
-    case "SIGN_OUT_USER":
+    case "LOG_OUT_USER":
       return userState;
 
     default:
