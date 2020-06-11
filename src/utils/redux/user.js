@@ -5,6 +5,8 @@ import {
   deleteUserByID,
 } from "../api";
 
+import Cookies from "js-cookie";
+
 const userState = {
   username: "",
   userId: "",
@@ -14,6 +16,8 @@ const userState = {
 export function signInUser(username) {
   return async (dispatch) => {
     const usernameInfo = await getUserInfo(username);
+
+    if (!usernameInfo) return;
     dispatch({
       type: "SIGN_IN_USER",
       payload: {
@@ -21,6 +25,7 @@ export function signInUser(username) {
         userId: usernameInfo._id,
       },
     });
+    Cookies.set("currentUser", `${username}`);
   };
 }
 
@@ -36,6 +41,7 @@ export function createUserAccount(username) {
         userId: newUser._id,
       },
     });
+    Cookies.set("currentUser", `${username}`);
   };
 }
 
@@ -65,6 +71,14 @@ export function deleteUserAccount(userID) {
   };
 }
 
+//sign out user account
+export function signOutUser() {
+  Cookies.remove("user");
+  return {
+    type: "SIGN_OUT_USER",
+  };
+}
+
 export default function userReducer(user = userState, action) {
   switch (action.type) {
     case "SIGN_IN_USER":
@@ -75,6 +89,7 @@ export default function userReducer(user = userState, action) {
         ...action.payload,
       };
     case "DELETE_USER":
+    case "SIGN_OUT_USER":
       return userState;
     default:
       return user;

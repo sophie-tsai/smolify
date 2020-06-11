@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import UserLinks from "../UserLinks/UserLinks";
 import "./LinksPage.css";
 import { getAllUrls } from "../../utils/api";
 
 function LinksPage() {
   useEffect(() => {
-    getAllUrls();
+    // getAllUrls();
   }, []);
 
   return (

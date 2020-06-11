@@ -1,10 +1,13 @@
 import React from "react";
 import "./Account.css";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 function Account() {
+  const currentUser = useSelector((state) => state.user.username);
+
   return (
     <div className="page-container">
       <h2 className="page-title">account details</h2>
@@ -16,7 +19,7 @@ function Account() {
             className="account-subcomponent-icon"
           />
           <p className="account-subcomponent-child">username</p>
-          <p className="account-subcomponent-child-end">sophiesigh</p>
+          <p className="account-subcomponent-child-end">{currentUser}</p>
         </div>
 
         <div className="account-subcomponent">

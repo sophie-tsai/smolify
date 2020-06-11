@@ -1,4 +1,7 @@
 /* TYPOGRAPHY */
+.error-message {
+  color: var(--purple);
+}
 
 /* BUTTONS */
 

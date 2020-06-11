@@ -13,6 +13,6 @@ const rootReducer = combineReducers({ user: userReducer });
 const store = createStore(rootReducer, applyMiddleware(thunk));
 store.subscribe(() => console.log("global state", store.getState()));
 
-store.dispatch(signInUser("hedgie"));
+store.dispatch(signInUser("ryan"));
 
 export default store;
