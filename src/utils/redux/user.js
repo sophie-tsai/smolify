@@ -1,11 +1,11 @@
+import Cookies from "js-cookie";
+
 import {
   getUserInfo,
   createUserDoc,
   updateUsernameByID,
   deleteUserByID,
 } from "../api";
-
-import Cookies from "js-cookie";
 
 const userState = {
   username: "",
