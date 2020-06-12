@@ -7,9 +7,6 @@ import "./LandingPage.css";
 function LandingPage() {
   const isSignedIn = useSelector((state) => state.user.username);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(setLogInCode(0));
-  }, []);
 
   return (
     <div className="page-container landing-page">

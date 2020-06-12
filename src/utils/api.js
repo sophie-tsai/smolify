@@ -17,19 +17,19 @@ const getAllUrls = async () => {
 };
 
 // get user info by username
-const getUserInfo = async (username) => {
+const getUserInfo = async (username, initialLogIn) => {
   try {
     const res = await axios.get(`${BASE_URL}/users/${username}`);
     const usernameInfo = res.data;
 
     if (!usernameInfo[0]) {
+      if (initialLogIn) return;
       store.dispatch(setLogInCode(404));
       return;
     }
     store.dispatch(setLogInCode(200));
     return usernameInfo[0];
   } catch (error) {
-    // store.dispatch(setLogInCode(404));
     console.error(error);
   }
 };

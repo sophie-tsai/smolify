@@ -11,19 +11,15 @@ import { useDispatch } from "react-redux";
 import { logInUser } from "./utils/redux/user";
 import Cookies from "js-cookie";
 import "./App.css";
-import { setLogInCode } from "./utils/redux/statusCodes";
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (Cookies.get("currentUser")) {
-      dispatch(logInUser(Cookies.get("currentUser")));
-
+      dispatch(logInUser(Cookies.get("currentUser"), true));
       return;
     }
-
-    // dispatch(setLogInCode(0));
   }, []);
 
   return (

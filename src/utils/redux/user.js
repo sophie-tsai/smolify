@@ -1,6 +1,4 @@
 import Cookies from "js-cookie";
-// import { setSignUpCode } from "./statusCodes";
-// import store from "../redux";
 
 import {
   getUserInfo,
@@ -8,6 +6,7 @@ import {
   updateUsernameByID,
   deleteUserByID,
 } from "../api";
+import store from ".";
 
 const userState = {
   username: "",
@@ -15,9 +14,9 @@ const userState = {
 };
 
 //log in user
-export function logInUser(username) {
+export function logInUser(username, initialLogIn) {
   return async (dispatch) => {
-    const usernameInfo = await getUserInfo(username);
+    const usernameInfo = await getUserInfo(username, initialLogIn);
     if (!usernameInfo) return;
     dispatch({
       type: "LOG_IN_USER",

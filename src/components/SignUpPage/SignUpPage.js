@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { createUserAccount } from "../../utils/redux/user";
 import { Link } from "react-router-dom";
 import "./SignUpPage.css";
-import { setSignUpCode } from "../../utils/redux/statusCodes";
+import { setSignUpCode, setLogInCode } from "../../utils/redux/statusCodes";
 
 function SignUpPage() {
   const dispatch = useDispatch();

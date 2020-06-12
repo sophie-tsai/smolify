@@ -15,15 +15,8 @@ function LogIn() {
   const invalidLength = "please enter username";
 
   useEffect(() => {
-    dispatch(setLogInCode(0));
-    setStatusMessage("");
-  }, []);
+    if (statusCode === 0) setStatusMessage("");
 
-  useEffect(() => {
-    if (statusCode === 0) {
-      setStatusMessage("");
-      return;
-    }
     if (statusCode === 404) setStatusMessage(invalidUsername);
 
     if (statusCode === 200) redirectToLinks();
