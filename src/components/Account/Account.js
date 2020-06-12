@@ -14,14 +14,31 @@ import {
   deleteUserAccount,
   updateUsername,
 } from "../../utils/redux/user";
+import { setUpdateCode } from "../../utils/redux/statusCodes";
 
 function Account() {
-  const { username, userId } = useSelector((state) => state.user);
-  const ref = useRef();
-  const [usernameInput, setUsernameInput] = useState(`${username}`);
-  const [editMode, setEditMode] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
+  const ref = useRef();
+  const { username, userId } = useSelector((state) => state.user);
+  const statusCode = useSelector((state) => state.statusCodes.update);
+  const [statusMessage, setStatusMessage] = useState("");
+  const [usernameInput, setUsernameInput] = useState("");
+  const [editMode, setEditMode] = useState(false);
+  const duplicateUser = "username already taken";
+  const invalidLength = "please enter username";
+
+  useEffect(() => {
+    if (editMode) ref.current.focus();
+  }, [editMode]);
+
+  useEffect(() => {
+    if (statusCode === 403) setStatusMessage(duplicateUser);
+  }, [statusCode]);
+
+  useEffect(() => {
+    dispatch(setUpdateCode(0));
+  }, []);
 
   const handleLogOut = () => {
     dispatch(logOutUser());
@@ -38,19 +55,29 @@ function Account() {
     }
   };
 
-  const handleChange = (event) => {
-    // if(event.keyCode === 13) handleSubmit();
-    const { value } = event.target;
-    setUsernameInput(value);
+  const handleSubmit = () => {
+    if (!usernameInput) {
+      setStatusMessage(invalidLength);
+      return;
+    }
+    dispatch(updateUsername(userId, usernameInput));
+    // setEditMode(false);
   };
 
-  const handleIconClick = () => {
-    setEditMode(true);
+  const handleChange = (event) => {
+    if (statusMessage) setStatusMessage("");
+    if (statusCode !== 0) {
+      dispatch(setUpdateCode(0));
+    }
+
+    const { value } = event.target;
+    setUsernameInput(value);
   };
 
   return (
     <div className="page-container account-page">
       <h2 className="page-title">account details</h2>
+      <strong className="error-message">{statusMessage}</strong>
       {username ? (
         <>
           <section className="account-body">
@@ -66,8 +93,7 @@ function Account() {
                   <FontAwesomeIcon
                     icon={faPencilAlt}
                     className="account-subcomponent-icon"
-                    onClick={handleIconClick}
-                    size="m"
+                    onClick={() => setEditMode(true)}
                   />
                 )}
               </div>
@@ -88,15 +114,16 @@ function Account() {
                 )}
               </div>
 
-              {editMode && (
-                <div className="submit-icon">
+              <div className="submit-icon">
+                {editMode && (
                   <FontAwesomeIcon
                     icon={faCheck}
                     className="account-subcomponent-icon"
                     style={{ color: "green" }}
+                    onClick={handleSubmit}
                   />
-                </div>
-              )}
+                )}
+              </div>
             </div>
 
             <div className="account-subcomponent">
@@ -112,14 +139,21 @@ function Account() {
                 <p className="account-subcomponent-child">total links</p>
                 <p className="account-subcomponent-child-end">4</p>
               </div>
+              <div className="submit-icon"></div>
             </div>
-            <button
-              className="button button-primary button-45"
-              onClick={handleLogOut}
-            >
-              log out
-            </button>
+
+            <div className="account-subcomponent">
+              <div className="edit-icons-div"></div>
+              <button
+                className="button button-primary button-45"
+                onClick={handleLogOut}
+              >
+                log out
+              </button>
+              <div className="submit-icon"></div>
+            </div>
           </section>
+
           <p className="cta-link" onClick={handleDeleteUser}>
             delete account
           </p>

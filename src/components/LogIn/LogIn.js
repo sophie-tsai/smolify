@@ -15,6 +15,10 @@ function LogIn() {
   const invalidLength = "please enter username";
 
   useEffect(() => {
+    dispatch(setLogInCode(0));
+  }, []);
+
+  useEffect(() => {
     if (statusCode === 0) setStatusMessage("");
 
     if (statusCode === 404) setStatusMessage(invalidUsername);
@@ -41,6 +45,7 @@ function LogIn() {
 
   const handleChange = (event) => {
     if (event.keyCode === 13) handleLogIn();
+
     if (statusMessage) setStatusMessage("");
     if (statusCode !== 0) {
       dispatch(setLogInCode(0));

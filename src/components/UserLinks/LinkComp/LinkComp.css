@@ -34,6 +34,10 @@
   font-size: 1.5rem;
 }
 
+.short-link:hover {
+  text-decoration: underline;
+}
+
 .link-info {
   font-size: 0.75rem;
   align-self: flex-end;

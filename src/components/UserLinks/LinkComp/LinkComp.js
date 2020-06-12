@@ -3,15 +3,25 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./LinkComp.css";
 
-function LinkComp() {
+function LinkComp(props) {
+  const BASE_URL = "http://localhost:5000";
+  const shortURL = `${BASE_URL}/${props.token}`;
+
   return (
     <div className="link-div">
       <FontAwesomeIcon icon={faTimes} className="delete-icon" />
       <div className="links">
-        <p className="short-link">www.smolify.io/d6c39</p>
-        <p className="long-link">www.google.com</p>
+        <a
+          className="short-link"
+          href={shortURL}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {shortURL}
+        </a>
+        <p className="long-link">{props.longUrl}</p>
       </div>
-      <p className="link-info">times clicked: 4</p>
+      <p className="link-info">times clicked: {props.timesClicked}</p>
     </div>
   );
 }

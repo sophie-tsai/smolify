@@ -23,3 +23,9 @@
   padding-bottom: 12em;
 }
 /* MEDIA QUERIES */
+
+@media (max-width: 500px) {
+  .landing-tagline {
+    font-size: 3rem;
+  }
+}

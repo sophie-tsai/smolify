@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { createUserAccount } from "../../utils/redux/user";
 import { Link } from "react-router-dom";
 import "./SignUpPage.css";
-import { setSignUpCode, setLogInCode } from "../../utils/redux/statusCodes";
+import { setSignUpCode } from "../../utils/redux/statusCodes";
 
 function SignUpPage() {
   const dispatch = useDispatch();
@@ -12,7 +12,6 @@ function SignUpPage() {
   const history = useHistory();
   const [usernameInput, setUsernameInput] = useState("");
   const [statusMessage, setStatusMessage] = useState("");
-
   const invalidLength = "please enter username";
   const duplicateUser = "username already taken";
 

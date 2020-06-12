@@ -1,5 +1,9 @@
 import axios from "axios";
-import { setSignUpCode, setLogInCode } from "./redux/statusCodes";
+import {
+  setSignUpCode,
+  setLogInCode,
+  setUpdateCode,
+} from "./redux/statusCodes";
 import store from "./redux";
 const BASE_URL = "http://localhost:5000";
 
@@ -68,7 +72,22 @@ const updateUsernameByID = async (userID, newUsername) => {
     const res = await axios.put(`${BASE_URL}/users/${userID}`, {
       updatedUser: newUsername,
     });
-    console.log(res);
+
+    return res.data;
+  } catch (error) {
+    store.dispatch(setUpdateCode(error.response.status));
+    return error.response.status;
+  }
+};
+
+// get all the links of given ID
+const getAllLinksByID = async (userID) => {
+  try {
+    const res = await axios.get(`${BASE_URL}/users/${userID}/urls`);
+    return {
+      userLinks: res.data,
+      totalLinks: res.data.length,
+    };
   } catch (error) {
     console.error(error);
   }
@@ -80,4 +99,5 @@ export {
   createUserDoc,
   deleteUserByID,
   updateUsernameByID,
+  getAllLinksByID,
 };

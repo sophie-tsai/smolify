@@ -6,7 +6,6 @@ import {
   updateUsernameByID,
   deleteUserByID,
 } from "../api";
-import store from ".";
 
 const userState = {
   username: "",
@@ -52,7 +51,11 @@ export function createUserAccount(username) {
 // update username
 export function updateUsername(userID, newUsername) {
   return async (dispatch) => {
-    await updateUsernameByID(userID, newUsername);
+    const update = await updateUsernameByID(userID, newUsername);
+
+    if (update === 403) {
+      return;
+    }
     console.log("updated");
     dispatch({
       type: "UPDATE_USERNAME",

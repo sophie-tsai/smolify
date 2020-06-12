@@ -1,12 +1,16 @@
 import React, { useEffect } from "react";
 import UserLinks from "../UserLinks/UserLinks";
 import "./LinksPage.css";
-import { getAllUrls } from "../../utils/api";
+import { getUserLinks } from "../../utils/redux/links";
+import { useSelector, useDispatch } from "react-redux";
 
 function LinksPage() {
+  const { userId } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    // getAllUrls();
-  }, []);
+    dispatch(getUserLinks(userId));
+  }, [userId]);
 
   return (
     <div className="page-container links-page">
