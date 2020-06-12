@@ -1,5 +1,5 @@
 import axios from "axios";
-import { setSignInCode } from "./redux/statusCodes";
+import { setSignUpCode, setLogInCode } from "./redux/statusCodes";
 import store from "./redux";
 const BASE_URL = "http://localhost:5000";
 
@@ -21,13 +21,15 @@ const getUserInfo = async (username) => {
   try {
     const res = await axios.get(`${BASE_URL}/users/${username}`);
     const usernameInfo = res.data;
-    // console.log(usernameInfo);
+
     if (!usernameInfo[0]) {
-      console.log("user does not exist");
+      store.dispatch(setLogInCode(404));
       return;
     }
+    store.dispatch(setLogInCode(200));
     return usernameInfo[0];
   } catch (error) {
+    // store.dispatch(setLogInCode(404));
     console.error(error);
   }
 };
@@ -41,10 +43,10 @@ const createUserDoc = async (username) => {
       },
     });
     const newUser = res.data;
-    store.dispatch(setSignInCode(200));
+    store.dispatch(setSignUpCode(200));
     return newUser;
   } catch (error) {
-    store.dispatch(setSignInCode(error.response.status));
+    store.dispatch(setSignUpCode(error.response.status));
 
     return error.response.status;
   }

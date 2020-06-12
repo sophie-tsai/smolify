@@ -1,5 +1,5 @@
 import Cookies from "js-cookie";
-// import { setSignInCode } from "./statusCodes";
+// import { setSignUpCode } from "./statusCodes";
 // import store from "../redux";
 
 import {
@@ -62,6 +62,7 @@ export function updateUsername(userID, newUsername) {
         userId: userID,
       },
     });
+    Cookies.set("currentUser", `${newUsername}`);
   };
 }
 

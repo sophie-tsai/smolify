@@ -1,11 +1,11 @@
 const statusCodeState = {
-  signIn: 0,
+  signUp: 0,
   logIn: 0,
 };
 
-export function setSignInCode(code) {
+export function setSignUpCode(code) {
   return {
-    type: "SET_SIGN_IN_CODE",
+    type: "SET_SIGN_UP_CODE",
     payload: code,
   };
 }
@@ -22,10 +22,10 @@ export default function statusCodeReducer(
   action
 ) {
   switch (action.type) {
-    case "SET_SIGN_IN_CODE":
+    case "SET_SIGN_UP_CODE":
       return {
         ...statusCode,
-        signIn: action.payload,
+        signUp: action.payload,
       };
     case "SET_LOG_IN_CODE":
       return {
