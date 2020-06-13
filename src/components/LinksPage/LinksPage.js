@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import UserLinks from "../UserLinks/UserLinks";
 import "./LinksPage.css";
-
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import NoAccount from "../Account/NoAccount";
+import { addLink } from "../../utils/redux/links";
 
 function LinksPage() {
   const { userId } = useSelector((state) => state.user);
+  const [linkInput, setLinkInput] = useState("");
+  const dispatch = useDispatch();
+
+  const handleChange = (event) => {
+    const { value } = event.target;
+    setLinkInput(value);
+  };
+
+  const handleAdd = () => {
+    dispatch(addLink(linkInput, userId));
+  };
 
   return (
     <div className="page-container links-page">
@@ -20,9 +31,13 @@ function LinksPage() {
                 type="text"
                 className="shorten-link-input"
                 placeholder="www..."
+                value={linkInput}
+                onChange={handleChange}
               ></input>
             </div>
-            <button className="button shorten-link-button">shorten</button>
+            <button className="button shorten-link-button" onClick={handleAdd}>
+              shorten
+            </button>
           </form>
 
           <UserLinks />

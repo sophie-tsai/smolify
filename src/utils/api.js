@@ -93,12 +93,27 @@ const getAllLinksByID = async (userID) => {
   }
 };
 
+// delete a specific link given ID
 const deleteLinkByID = async (urlID) => {
   try {
     const res = await axios.delete(`${BASE_URL}/urls/${urlID}`);
+    return res.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
-    console.log(res.data);
-    return "deleted";
+// add a link
+const addALink = async (url, userID) => {
+  try {
+    const res = await axios.post(`${BASE_URL}/urls`, {
+      url: {
+        longUrl: url,
+        user: userID,
+      },
+    });
+
+    return res.data;
   } catch (error) {
     console.error(error);
   }
@@ -112,4 +127,5 @@ export {
   updateUsernameByID,
   getAllLinksByID,
   deleteLinkByID,
+  addALink,
 };

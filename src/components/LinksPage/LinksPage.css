@@ -44,4 +44,11 @@
 
 /* LAYOUT */
 
+.no-links-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 /* MEDIA QUERIES */

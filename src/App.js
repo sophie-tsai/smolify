@@ -17,6 +17,7 @@ function App() {
   const dispatch = useDispatch();
   const { userId } = useSelector((state) => state.user);
 
+  // if there are cookies of an existing user, then try to log them in
   useEffect(() => {
     if (Cookies.get("currentUser")) {
       dispatch(logInUser(Cookies.get("currentUser"), true));

@@ -55,6 +55,7 @@ function Account() {
     ) {
       dispatch(deleteUserAccount(userId));
     }
+    history.push("/");
   };
 
   const handleSubmit = () => {

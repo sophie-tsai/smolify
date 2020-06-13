@@ -1,5 +1,21 @@
 /* TYPOGRAPHY */
 
+.no-links {
+  font-size: 1.5rem;
+}
+
+.short-link {
+  font-size: 1.5rem;
+}
+
+.short-link:hover {
+  text-decoration: underline;
+}
+
+.long-link {
+  font-size: 1rem;
+}
+
 /* BUTTONS */
 
 /* FORM */
@@ -28,14 +44,6 @@
 .links {
   flex-grow: 1;
   text-align: center;
-}
-
-.short-link {
-  font-size: 1.5rem;
-}
-
-.short-link:hover {
-  text-decoration: underline;
 }
 
 .link-info {
