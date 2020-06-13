@@ -93,6 +93,17 @@ const getAllLinksByID = async (userID) => {
   }
 };
 
+const deleteLinkByID = async (urlID) => {
+  try {
+    const res = await axios.delete(`${BASE_URL}/urls/${urlID}`);
+
+    console.log(res.data);
+    return "deleted";
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export {
   getAllUrls,
   getUserInfo,
@@ -100,4 +111,5 @@ export {
   deleteUserByID,
   updateUsernameByID,
   getAllLinksByID,
+  deleteLinkByID,
 };

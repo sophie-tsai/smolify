@@ -3,6 +3,8 @@ import "./Account.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { setUpdateCode } from "../../utils/redux/statusCodes";
+import NoAccount from "./NoAccount";
 import {
   faPencilAlt,
   faPlus,
@@ -14,7 +16,6 @@ import {
   deleteUserAccount,
   updateUsername,
 } from "../../utils/redux/user";
-import { setUpdateCode } from "../../utils/redux/statusCodes";
 
 function Account() {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ function Account() {
   const ref = useRef();
   const { username, userId } = useSelector((state) => state.user);
   const statusCode = useSelector((state) => state.statusCodes.update);
+  const { totalLinks } = useSelector((state) => state.links);
   const [statusMessage, setStatusMessage] = useState("");
   const [usernameInput, setUsernameInput] = useState("");
   const [editMode, setEditMode] = useState(false);
@@ -137,7 +139,7 @@ function Account() {
               </div>
               <div className="inside-box">
                 <p className="account-subcomponent-child">total links</p>
-                <p className="account-subcomponent-child-end">4</p>
+                <p className="account-subcomponent-child-end">{totalLinks}</p>
               </div>
               <div className="submit-icon"></div>
             </div>
@@ -159,18 +161,7 @@ function Account() {
           </p>
         </>
       ) : (
-        <>
-          <p>
-            <Link to="/signup" className="cta-link">
-              sign up
-            </Link>{" "}
-            or{" "}
-            <Link to="/login" className="cta-link">
-              log in
-            </Link>{" "}
-            to get started
-          </p>
-        </>
+        <NoAccount />
       )}
     </div>
   );

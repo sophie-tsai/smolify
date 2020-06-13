@@ -7,13 +7,15 @@ import Account from "./components/Account/Account";
 import LogIn from "./components/LogIn/LogIn";
 import Signature from "./components/Signature/Signature";
 import { Switch, Route } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logInUser } from "./utils/redux/user";
+import { getUserLinks } from "./utils/redux/links";
 import Cookies from "js-cookie";
 import "./App.css";
 
 function App() {
   const dispatch = useDispatch();
+  const { userId } = useSelector((state) => state.user);
 
   useEffect(() => {
     if (Cookies.get("currentUser")) {
@@ -21,6 +23,10 @@ function App() {
       return;
     }
   }, []);
+
+  useEffect(() => {
+    dispatch(getUserLinks(userId));
+  }, [userId]);
 
   return (
     <div className="app-container">

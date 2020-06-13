@@ -1,12 +1,11 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { setLogInCode } from "../../utils/redux/statusCodes";
+import React from "react";
+import { useSelector } from "react-redux";
+
 import { Link } from "react-router-dom";
 import "./LandingPage.css";
 
 function LandingPage() {
   const isSignedIn = useSelector((state) => state.user.username);
-  const dispatch = useDispatch();
 
   return (
     <div className="page-container landing-page">
