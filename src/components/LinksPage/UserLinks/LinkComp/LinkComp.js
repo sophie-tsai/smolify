@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./LinkComp.css";
 import { useDispatch } from "react-redux";
-import { deleteLink } from "../../../utils/redux/links";
+import { deleteLink } from "../../../../utils/redux/links";
 
 function LinkComp(props) {
   const BASE_URL = "http://localhost:5000";
@@ -32,7 +32,7 @@ function LinkComp(props) {
         </a>
         <p className="long-link">{props.longUrl}</p>
       </div>
-      <p className="link-info">times clicked: {props.timesClicked}</p>
+      <p className="link-info">{props.timesClicked}x</p>
     </div>
   );
 }

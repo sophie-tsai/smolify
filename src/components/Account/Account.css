@@ -4,7 +4,8 @@
 
 .button-45 {
   width: 45%;
-  min-width: 250px;
+  min-width: 300px;
+  max-width: 600px;
 }
 
 /* LAYOUT */
@@ -41,7 +42,8 @@
   justify-content: space-between;
   background: var(--white);
   width: 45%;
-  min-width: 250px;
+  min-width: 300px;
+  max-width: 600px;
   padding: 1em 1.2em;
   font-size: 1.2rem;
   border: 1px solid var(--gray);
@@ -78,3 +80,10 @@
 }
 
 /* MEDIA QUERIES */
+
+@media (max-width: 700px) {
+  .account-label,
+  .account-value {
+    font-size: 1rem;
+  }
+}

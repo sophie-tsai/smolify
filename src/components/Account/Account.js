@@ -1,9 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import "./Account.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { setUpdateCode } from "../../utils/redux/statusCodes";
+import AccountComp from "./AccountComp";
 import NoAccount from "./NoAccount";
 import {
   faPencilAlt,
@@ -20,7 +21,7 @@ import {
 function Account() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const ref = useRef();
+
   const { username, userId } = useSelector((state) => state.user);
   const statusCode = useSelector((state) => state.statusCodes.update);
   const { totalLinks } = useSelector((state) => state.links);
@@ -29,10 +30,6 @@ function Account() {
   const [editMode, setEditMode] = useState(false);
   const duplicateUser = "username already taken";
   const invalidLength = "please enter username";
-
-  useEffect(() => {
-    if (editMode) ref.current.focus();
-  }, [editMode]);
 
   useEffect(() => {
     if (statusCode === 403) setStatusMessage(duplicateUser);
@@ -67,16 +64,6 @@ function Account() {
     // setEditMode(false);
   };
 
-  const handleChange = (event) => {
-    if (statusMessage) setStatusMessage("");
-    if (statusCode !== 0) {
-      dispatch(setUpdateCode(0));
-    }
-
-    const { value } = event.target;
-    setUsernameInput(value);
-  };
-
   return (
     <div className="page-container account-page">
       <h2 className="page-title">account details</h2>
@@ -102,7 +89,7 @@ function Account() {
               </div>
 
               {/* box containing information */}
-              <div className="inside-box">
+              {/* <div className="inside-box">
                 <p className="account-label">username</p>
                 {editMode ? (
                   <input
@@ -115,7 +102,14 @@ function Account() {
                 ) : (
                   <p className="account-value">{username}</p>
                 )}
-              </div>
+              </div> */}
+              <AccountComp
+                label="username"
+                value={username}
+                editMode={editMode}
+                usernameInput={usernameInput}
+                setUsernameInput={setUsernameInput}
+              />
 
               <div className="submit-icon">
                 {editMode && (
@@ -138,10 +132,14 @@ function Account() {
                   />
                 </Link>
               </div>
-              <div className="inside-box">
-                <p className="account-subcomponent-child">total links</p>
-                <p className="account-subcomponent-child-end">{totalLinks}</p>
-              </div>
+
+              <AccountComp
+                label="total links"
+                value={totalLinks}
+                editMode={editMode}
+                usernameInput={usernameInput}
+                setUsernameInput={setUsernameInput}
+              />
               <div className="submit-icon"></div>
             </div>
 
