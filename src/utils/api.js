@@ -12,8 +12,6 @@ const getAllUrls = async () => {
   try {
     const res = await axios.get(`${BASE_URL}/urls`);
     const allUrls = res.data;
-
-    console.log(allUrls);
     return allUrls;
   } catch (error) {
     console.error(error);
