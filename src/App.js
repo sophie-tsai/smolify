@@ -33,7 +33,7 @@ function App() {
     <div className="app-container">
       <Header style={{ flexGrow: 0 }} />
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/smolify">
           <LandingPage />
         </Route>
         <Route exact path="/signup">
