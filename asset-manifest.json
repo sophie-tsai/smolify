@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/smolify/static/css/main.e9d7c470.chunk.css",
+    "main.js": "/smolify/static/js/main.06e5d17e.chunk.js",
+    "main.js.map": "/smolify/static/js/main.06e5d17e.chunk.js.map",
+    "runtime-main.js": "/smolify/static/js/runtime-main.49e53e57.js",
+    "runtime-main.js.map": "/smolify/static/js/runtime-main.49e53e57.js.map",
+    "static/js/2.a7ff7c54.chunk.js": "/smolify/static/js/2.a7ff7c54.chunk.js",
+    "static/js/2.a7ff7c54.chunk.js.map": "/smolify/static/js/2.a7ff7c54.chunk.js.map",
+    "index.html": "/smolify/index.html",
+    "precache-manifest.65f6e0a33c1d6521a9b417a23d5dba0f.js": "/smolify/precache-manifest.65f6e0a33c1d6521a9b417a23d5dba0f.js",
+    "service-worker.js": "/smolify/service-worker.js",
+    "static/css/main.e9d7c470.chunk.css.map": "/smolify/static/css/main.e9d7c470.chunk.css.map",
+    "static/js/2.a7ff7c54.chunk.js.LICENSE.txt": "/smolify/static/js/2.a7ff7c54.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/smolify/static/media/memphis-mini.33545ec6.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.49e53e57.js",
+    "static/js/2.a7ff7c54.chunk.js",
+    "static/css/main.e9d7c470.chunk.css",
+    "static/js/main.06e5d17e.chunk.js"
+  ]
+}
