@@ -64,7 +64,7 @@
 
 /* MEDIA QUERIES */
 
-@media (max-width: 700px) {
+@media (max-width: 750px) {
   .https {
     font-size: 0.8rem;
   }

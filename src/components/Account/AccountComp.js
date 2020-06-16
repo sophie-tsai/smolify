@@ -34,6 +34,7 @@ function AccountComp(props) {
           className="account-subcomponent-child-input"
           onChange={handleChange}
           value={usernameInput}
+          size="4"
         />
       ) : (
         <p className="account-value">{value}</p>

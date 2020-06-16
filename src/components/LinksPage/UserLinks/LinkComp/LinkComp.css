@@ -5,7 +5,7 @@
 }
 
 .short-link {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 .short-link:hover {
@@ -13,7 +13,7 @@
 }
 
 .long-link {
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 /* BUTTONS */
@@ -57,9 +57,9 @@
 }
 /* MEDIA QUERIES */
 
-@media (max-width: 900px) {
+@media (max-width: 950px) {
   .short-link {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
   }
 
   .long-link {
@@ -67,12 +67,12 @@
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 750px) {
   .short-link {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 
   .long-link {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
   }
 }

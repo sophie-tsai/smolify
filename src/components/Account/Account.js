@@ -41,7 +41,7 @@ function Account() {
 
   const handleLogOut = () => {
     dispatch(logOutUser());
-    history.push("/");
+    history.push("/smolify");
   };
 
   const handleDeleteUser = () => {
@@ -52,7 +52,7 @@ function Account() {
     ) {
       dispatch(deleteUserAccount(userId));
     }
-    history.push("/");
+    history.push("/smolify");
   };
 
   const handleSubmit = () => {
@@ -88,21 +88,6 @@ function Account() {
                 )}
               </div>
 
-              {/* box containing information */}
-              {/* <div className="inside-box">
-                <p className="account-label">username</p>
-                {editMode ? (
-                  <input
-                    ref={ref}
-                    type="text"
-                    className="account-subcomponent-child-input"
-                    onChange={handleChange}
-                    value={usernameInput}
-                  />
-                ) : (
-                  <p className="account-value">{username}</p>
-                )}
-              </div> */}
               <AccountComp
                 label="username"
                 value={username}
@@ -146,7 +131,7 @@ function Account() {
             <div className="account-subcomponent">
               <div className="edit-icons-div"></div>
               <button
-                className="button button-primary button-45"
+                className="button button-primary button-logout"
                 onClick={handleLogOut}
               >
                 log out

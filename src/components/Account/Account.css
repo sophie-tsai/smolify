@@ -2,15 +2,21 @@
 
 /* BUTTONS */
 
-.button-45 {
-  width: 45%;
-  min-width: 300px;
-  max-width: 600px;
+.button-logout {
+  width: calc(100% - 4rem);
 }
 
 /* LAYOUT */
 .account-page {
   text-align: center;
+}
+
+.account-body {
+  margin: 0 auto;
+  margin-bottom: 2em;
+  width: 50%;
+  min-width: 360px;
+  max-width: 600px;
 }
 
 .account-subcomponent {
@@ -24,16 +30,17 @@
 }
 
 .edit-icons-div {
-  width: 27.5%;
-
+  width: 2rem;
+  flex-grow: 0;
+  margin-right: 0.5em;
   text-align: right;
-  flex-shrink: 1;
 }
 
 .submit-icon {
-  width: 27.5%;
+  width: 2rem;
   text-align: left;
-  flex-shrink: 1;
+  margin-left: 0.5em;
+  flex-grow: 0;
 }
 
 .inside-box {
@@ -41,18 +48,16 @@
   outline: none;
   justify-content: space-between;
   background: var(--white);
-  width: 45%;
-  min-width: 300px;
-  max-width: 600px;
+
   padding: 1em 1.2em;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   border: 1px solid var(--gray);
   border-radius: 5px;
   align-items: center;
+  flex-grow: 1;
 }
 
 .account-subcomponent-icon {
-  margin: 0 0.75em;
   cursor: pointer;
 }
 
@@ -65,18 +70,14 @@
   flex-grow: 1;
   text-align: end;
   border: none;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   outline: none;
-  min-width: 100px;
+  /* min-width: 50px; */
   margin-left: 1em;
 }
 
 .account-details {
   margin: 2em;
-}
-
-.account-body {
-  margin-bottom: 2em;
 }
 
 /* MEDIA QUERIES */

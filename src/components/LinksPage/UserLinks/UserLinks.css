@@ -7,10 +7,10 @@
 /* LAYOUT */
 
 .all-links {
-  height: 23rem;
+  height: 80%;
   overflow: auto;
   width: 50%;
-  padding-right: 0.5em;
+
   margin: 0.5em auto;
   max-width: 600px;
   min-width: 350px;
