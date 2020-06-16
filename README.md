@@ -1,6 +1,8 @@
 # Smolify
 
-See it live [here](https://sophie-tsai.github.io/Smolify/).
+See it live [here](https://sophie-tsai.github.io/smolify/).
+
+Built using: HTML, CSS, Javascript ES6, React 16.8, Redux, Axios, and more
 
 **Check out other projects:**
 
