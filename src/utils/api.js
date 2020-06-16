@@ -5,7 +5,7 @@ import {
   setUpdateCode,
 } from "./redux/statusCodes";
 import store from "./redux";
-const BASE_URL = "https://smolify.herokuapp.com/";
+const BASE_URL = "https://smolify.herokuapp.com";
 
 // get all urls in database
 const getAllUrls = async () => {

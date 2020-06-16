@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { deleteLink } from "../../../../utils/redux/links";
 
 function LinkComp(props) {
-  const BASE_URL = "https://smolify.herokuapp.com/";
+  const BASE_URL = "https://smolify.herokuapp.com";
   const shortURL = `${BASE_URL}/${props.token}`;
   const dispatch = useDispatch();
 
