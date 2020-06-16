@@ -32,11 +32,11 @@ export function deleteLink(linkID) {
 // add link
 export function addLink(link, userID) {
   return async (dispatch) => {
-    await addALink(link, userID);
+    const linkObj = await addALink(link, userID);
 
     dispatch({
       type: "ADD_LINK",
-      payload: link,
+      payload: linkObj,
     });
   };
 }

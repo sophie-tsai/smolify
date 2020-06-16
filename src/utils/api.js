@@ -110,7 +110,6 @@ const addALink = async (url, userID) => {
         user: userID,
       },
     });
-
     return res.data;
   } catch (error) {
     console.error(error);

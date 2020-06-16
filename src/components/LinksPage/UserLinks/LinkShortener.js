@@ -12,7 +12,8 @@ function LinkShortener() {
     setLinkInput(value);
   };
 
-  const handleAdd = () => {
+  const handleAdd = (e) => {
+    e.preventDefault();
     dispatch(addLink(linkInput, userId));
   };
 

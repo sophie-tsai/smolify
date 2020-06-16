@@ -26,7 +26,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    dispatch(getUserLinks(userId));
+    if (userId) dispatch(getUserLinks(userId));
   }, [userId]);
 
   return (
