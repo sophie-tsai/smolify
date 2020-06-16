@@ -7,7 +7,7 @@ function Header() {
   return (
     <div className="header-container">
       <h2 className="title">
-        <Link to="/">smolify </Link>
+        <Link to="/smolify">smolify </Link>
       </h2>
 
       <p className="header-item">
