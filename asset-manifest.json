@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/smolify/static/css/main.e9d7c470.chunk.css",
-    "main.js": "/smolify/static/js/main.c4c07d93.chunk.js",
-    "main.js.map": "/smolify/static/js/main.c4c07d93.chunk.js.map",
+    "main.css": "/smolify/static/css/main.b0930f74.chunk.css",
+    "main.js": "/smolify/static/js/main.7042939b.chunk.js",
+    "main.js.map": "/smolify/static/js/main.7042939b.chunk.js.map",
     "runtime-main.js": "/smolify/static/js/runtime-main.49e53e57.js",
     "runtime-main.js.map": "/smolify/static/js/runtime-main.49e53e57.js.map",
     "static/js/2.a7ff7c54.chunk.js": "/smolify/static/js/2.a7ff7c54.chunk.js",
     "static/js/2.a7ff7c54.chunk.js.map": "/smolify/static/js/2.a7ff7c54.chunk.js.map",
     "index.html": "/smolify/index.html",
-    "precache-manifest.70733be386f05d81094066726044bdfb.js": "/smolify/precache-manifest.70733be386f05d81094066726044bdfb.js",
+    "precache-manifest.f28d43d51cb36c5fbb9179b7da3c675e.js": "/smolify/precache-manifest.f28d43d51cb36c5fbb9179b7da3c675e.js",
     "service-worker.js": "/smolify/service-worker.js",
-    "static/css/main.e9d7c470.chunk.css.map": "/smolify/static/css/main.e9d7c470.chunk.css.map",
+    "static/css/main.b0930f74.chunk.css.map": "/smolify/static/css/main.b0930f74.chunk.css.map",
     "static/js/2.a7ff7c54.chunk.js.LICENSE.txt": "/smolify/static/js/2.a7ff7c54.chunk.js.LICENSE.txt",
     "static/media/App.css": "/smolify/static/media/memphis-mini.33545ec6.png"
   },
   "entrypoints": [
     "static/js/runtime-main.49e53e57.js",
     "static/js/2.a7ff7c54.chunk.js",
-    "static/css/main.e9d7c470.chunk.css",
-    "static/js/main.c4c07d93.chunk.js"
+    "static/css/main.b0930f74.chunk.css",
+    "static/js/main.7042939b.chunk.js"
   ]
 }

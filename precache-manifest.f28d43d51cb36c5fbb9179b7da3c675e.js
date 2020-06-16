@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9027c4a0c10044700af9c87e0abc38f1",
+    "revision": "b4995917571765ddfaafe13cfdf67fcf",
     "url": "/smolify/index.html"
   },
   {
-    "revision": "efc7d6062176bcc150b8",
-    "url": "/smolify/static/css/main.e9d7c470.chunk.css"
+    "revision": "fb137b6f10b7fbccc047",
+    "url": "/smolify/static/css/main.b0930f74.chunk.css"
   },
   {
     "revision": "71526b102106172cab0f",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/smolify/static/js/2.a7ff7c54.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "efc7d6062176bcc150b8",
-    "url": "/smolify/static/js/main.c4c07d93.chunk.js"
+    "revision": "fb137b6f10b7fbccc047",
+    "url": "/smolify/static/js/main.7042939b.chunk.js"
   },
   {
     "revision": "2d29601738f35028bd1f",
